@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const client = new MongoClient(process.env.MONGODB_ATLAS_URI as string);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 async function startServer (){
     try {
@@ -44,6 +44,8 @@ async function startServer (){
                 res.status(500).json({error: 'Internal server error'});
             }
         })
+        console.log(PORT)
+
 
         app.listen(PORT, ()=>{
             console.log(`Server listening on port ${PORT}`)
